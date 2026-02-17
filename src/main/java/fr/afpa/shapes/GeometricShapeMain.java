@@ -2,12 +2,13 @@ package fr.afpa.shapes;
 
 import java.util.ArrayList;
 
-class GeometricShapeMain
-{
-	public static void main(String[] args) 
-	{
+class GeometricShapeMain {
 
-	// Création des objets
+    public static void main(String[] args) {
+
+        // Création des objets
+        int rectangleCount = 0;
+        int circleCount = 0;
         Rectangle rect1 = new Rectangle(5, 3);
         Rectangle rect2 = new Rectangle(10, 4);
 
@@ -24,9 +25,22 @@ class GeometricShapeMain
 
         // Boucle pour afficher les résultats
         for (Shape shape : shapes) {
-            System.out.println("Périmètre : " + shape.calculatePerimeter());
-            System.out.println("Aire : " + shape.calculateArea());
-            System.out.println("----------------------");
+
+            if (shape instanceof Rectangle) {
+                rectangleCount++;
+                System.out.println(
+                        "Rectangle " + rectangleCount
+                        + " : Périmètre : " + shape.calculatePerimeter()
+                        + " / Aire : " + shape.calculateArea()
+                );
+            } else if (shape instanceof Circle) {
+                circleCount++;
+                System.out.println(
+                        "Circle " + circleCount
+                        + " : Périmètre : " + shape.calculatePerimeter()
+                        + " / Aire : " + shape.calculateArea()
+                );
+            }
         }
     }
 }
